@@ -1,0 +1,20 @@
+<h1>Listing cards</h1>
+
+<table>
+  <tr>
+    <th>Original</th>
+    <th>Translated</th>
+    <th></th>
+  </tr>
+
+  <% @cards.each do |card| %>
+    <tr>
+      <td><%= card.original_text %></td>
+      <td><%= card.translated_text %></td>
+      <td><%= card.review_date %></td>
+      <td><%= link_to 'Show', card_path(card) %></td>
+    </tr>
+  <% end %>
+</table>
+
+
