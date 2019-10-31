@@ -4,14 +4,3 @@ Rails.application.routes.draw do
 
   resources :cards 
 end
-
-
-
-# Rails.application.routes.draw do
-  # get 'welcome/index'  надо ли удалять???
-
-  # resources :articles do
-    # resources :comments
-  # end
-  #root 'welcome#index' не понятно как нужно оставить, пункт 6.3
-# end
