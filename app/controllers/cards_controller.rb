@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CardsController < ApplicationController
   def index
     @cards = Card.all
@@ -7,7 +9,7 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
   end
 
-  def new ; end
+  def new; end
 
   def create
     @card = Card.new(card_params)
@@ -21,5 +23,4 @@ class CardsController < ApplicationController
   def card_params
     params.require(:card).permit(:original_text, :translated_text, :review_date)
   end
-  
 end
