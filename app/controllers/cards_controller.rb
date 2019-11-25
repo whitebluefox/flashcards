@@ -16,6 +16,8 @@ class CardsController < ApplicationController
   def edit ; end
 
   def create
+    @card = Card.new(card_params)
+
     if @card.save
       redirect_to @card
     else
@@ -24,6 +26,8 @@ class CardsController < ApplicationController
   end
 
   def update
+    @card = Card.find(params[:id])
+    
     if card.update(card_params)
       redirect_to card
     else
