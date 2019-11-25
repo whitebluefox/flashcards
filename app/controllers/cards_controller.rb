@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
 class CardsController < ApplicationController
-  before_action :card, only: [:show, :edit, :update, :destroy]
+  before_action :card, only: %i[show edit update destroy]
 
   def index
     @cards = Card.all
   end
 
-  def show ; end
+  def show; end
 
   def new
     @card = Card.new
   end
 
-  def edit ; end
+  def edit; end
 
   def create
     @card = Card.new(card_params)
@@ -38,7 +38,7 @@ class CardsController < ApplicationController
   def destroy
     card.destroy
 
-    redirect_to card_path
+    redirect_to cards_path
   end
 
   private

@@ -10,12 +10,11 @@ class Card < ApplicationRecord
   validate :original_and_translated_not_equal
   
   def original_and_translated_not_equal
-    if original_text == translated_text
-      errors.add(:original_text, "can't be equal")
-    end
+    return unless original_text == translated_text
+    errors.add(:original_text, "can't be equal")
   end
 
-private
+  private
 
   def review_date_change
     self.review_date = Date.today + 3
