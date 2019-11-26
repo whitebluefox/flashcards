@@ -16,10 +16,10 @@ class CardsController < ApplicationController
   def edit; end
 
   def create
-    @card = Card.new(card_params)
+    card = Card.new(card_params)
 
-    if @card.save
-      redirect_to @card
+    if card.save
+      redirect_to card
     else
       render 'new'
     end
