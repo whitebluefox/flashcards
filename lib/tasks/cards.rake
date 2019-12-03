@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'open-uri'
 
 namespace :cards do
   desc 'parsing and fill in database'
-  task :parsing => :environment do
+  task parsing: :environment do
     puts 'Parsing started'
-    doc = Nokogiri::HTML(open('https://sanstv.ru/english_words'),nil,'UTF-8')
+    doc = Nokogiri::HTML(open('https://sanstv.ru/english_words'), nil,'UTF-8')
 
     doc.css('tbody tr').each do |tr|
       tr_html = Nokogiri::HTML(tr.to_s)
