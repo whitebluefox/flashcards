@@ -39,6 +39,19 @@ class CardsController < ApplicationController
     redirect_to cards_path
   end
 
+  def check_card
+    card_id = params[:card_values][:card_id]
+    text_for_review = params[:card_values][:original_text]
+
+    if CardReviewService.new(card_id, text_for_review).call
+      flash[:notice] = 'You guessed!'
+    else
+      flash[:notice] = 'nope'
+    end
+
+    redirect_to home_path
+  end
+
   private
 
   def card
