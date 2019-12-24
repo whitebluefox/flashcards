@@ -1,10 +1,6 @@
 
 <h1>Первый в мире удобный менеджер флеш-карточек. Именно так.</h1>
 
-<% if notice.present? %>
-<p class="alert alert-primary" role="alert" id="notice"><%= notice %></p>
-<% end %>
-
 <%= @card.translated_text %>
 <%= @card.id %>
 <%= simple_form_for(:card_values, method: :post, url: check_card_path) do |f| %>
