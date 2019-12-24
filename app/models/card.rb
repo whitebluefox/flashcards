@@ -9,7 +9,7 @@ class Card < ApplicationRecord
 
   validate :original_and_translated_not_equal
 
-  scope :for_review, -> { where("review_date <= ?", Date.today) }
+  scope :for_review, -> { where('review_date <= ?', Date.today) }
 
   private
 
