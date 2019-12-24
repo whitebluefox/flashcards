@@ -1,3 +1,11 @@
 
-
 <h1>Первый в мире удобный менеджер флеш-карточек. Именно так.</h1>
+
+<%= @card.translated_text %>
+<%= @card.id %>
+<%= simple_form_for(:card_values, method: :post, url: check_card_path) do |f| %>
+  <%= f.input :card_id, input_html: { value: @card.id }, as: :hidden %>
+  <%= f.input :original_text %>
+  <%= f.submit 'Check' %>
+<% end %>
+ 

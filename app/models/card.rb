@@ -9,14 +9,12 @@ class Card < ApplicationRecord
 
   validate :original_and_translated_not_equal
 
+  scope :for_review, -> { where('review_date <= ?', Date.today) }
+
   private
 
   def original_and_translated_not_equal
     return unless original_text == translated_text
     errors.add(:original_text, "can't be equal")
-  end
-
-  def review_date_change
-    self.review_date = Date.today + 3
   end
 end

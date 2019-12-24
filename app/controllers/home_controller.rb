@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    
-  end
+    @card = Card.for_review.sample
+  end  
 end
